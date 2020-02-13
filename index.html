@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <title>高鐵車票</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/hot-sneaks/jquery-ui.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script type="text/javascript" src = "https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
+    <script type="text/javascript" src = "https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/jquery-ui.min.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" integrity="sha384-REHJTs1r2ErKBuJB0fCK99gCYsVjwxHrSU0N7I1zl9vZbggVJXRMsv/sLlOAGb4M" crossorigin="anonymous">
+
+      <!-- UI timer外掛 -->
+    <link rel="stylesheet" href="jquery.timepicker.min.css">
+    <script type="text/javascript" src="jquery.timepicker.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+  <div class="container container1">
+
+    <!-- 第一個ROW -->
+    <div class="row firstrow">
+      <div class="col-4 col-sm-4 col-md-4 col-lg-5">
+
+        <div class="contents0">
+        <h4>出發日期</h4>
+        <input type="text" id="datepicker" placeholder="請選擇日期" >
+        </div>
+
+        <div class="contents0" style="margin-top:10px;">
+        <h4>出發時間</h4>
+        <input type="text" id="timepicker" placeholder="請選擇時間" >
+        </div>
+
+      </div>
+
+
+
+      <div class="col-5 col-sm-5 col-md-5 col-lg-4 startstation">
+
+        <div class="contents1">
+
+        <h3>起站</h3>
+        <select id="selector1" class="selctor">
+          <option value="0990">南港</option>
+          <option value="1000">臺北</option>
+          <option value="1010">板橋</option>
+          <option value="1020">桃園</option>
+          <option value="1030">新竹</option>
+          <option value="1035">苗栗</option>
+          <option value="1040">臺中</option>
+          <option value="1043">彰化</option>
+          <option value="1047">雲林</option>
+          <option value="1050">嘉義</option>
+          <option value="1060">臺南</option>
+          <option value="1070">左營</option>
+        </select>
+
+        </div>
+
+
+        <div class="contents1">
+        <i id="switch" class="fas fa-exchange-alt"></i>
+        </div>
+
+
+        <div class="contents1">
+
+        <h3>迄站</h3>
+        <select id="selector2" class="selctor">
+          <option value="0990">南港</option>
+          <option value="1000">臺北</option>
+          <option value="1010">板橋</option>
+          <option value="1020">桃園</option>
+          <option value="1030">新竹</option>
+          <option value="1035">苗栗</option>
+          <option value="1040">臺中</option>
+          <option value="1043">彰化</option>
+          <option value="1047">雲林</option>
+          <option value="1050">嘉義</option>
+          <option value="1060">臺南</option>
+          <option value="1070">左營</option>
+        </select>
+
+        </div>
+
+      </div>
+
+      <div class="col-3 col-sm-3 col-md-3 col-lg-3">
+        <div class="searchbutton">
+        <button id="searchbutton" type="button" name="button">立即查詢</button>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- 第二個ROW -->
+    <div class="row secondrow">
+      <div class="col-3">
+        <div class="contents2">
+            <h4 style="font-weight:bold;">車次</h4>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="contents2">
+            <h4  style="font-weight:bold;">出發時間</h4>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="contents2">
+            <h4  style="font-weight:bold;">到達時間</h4>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="contents2">
+            <h4 style="font-weight:bold;">乘車時間</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container container2 ">
+
+    <!-- 第二個容器第一個ROW -->
+    <div class="row appendRow">
+
+      <div class="col-3">
+        <div class="contents3">
+            <!-- <h4 style="font-weight:bold;">車次</h4> -->
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="contents3">
+            <!-- <h4  style="font-weight:bold;">出發時間</h4> -->
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="contents3">
+            <!-- <h4  style="font-weight:bold;">到達時間</h4> -->
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="contents3">
+            <!-- <h4 style="font-weight:bold;">乘車時間</h4> -->
+        </div>
+      </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+
+  $(document).ready(function(){
+
+    $('#timepicker').timepicker({
+    timeFormat: 'HH:mm p',
+    interval: 30,
+    minTime: '05',
+    maxTime: '23:00',
+    startTime: '05',
+    dynamic: false,
+    dropdown: true,
+    scrollbar: true
+});
+
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+
+
+  // 點案switch後交換起訖站
+  $('#switch').click(function(){
+    var startvalue = $("#selector1").val();
+    var endvalue = $("#selector2").val();
+
+    var tmp = startvalue;
+    startvalue = endvalue;
+    endvalue = tmp;
+    $("#selector1").val(startvalue);
+    $("#selector2").val(endvalue);
+    // console.log(startvalue,endvalue);
+  });
+
+
+
+
+// 點案提交後執行動作
+$("#searchbutton").click(function(){
+  // console.log($("#datepicker").val());
+  var date = $("#datepicker").val().split('/');
+  var newdate = date[2] + "-" + date[0] + "-" + date[1];
+  // console.log(newdate);
+
+  var startstation = $("#selector1").val();
+  // console.log(startstation);
+
+  var endstation = $("#selector2").val();
+  // console.log(endstation);
+
+  var rowstarttime = $("#timepicker").val().split(' ');
+  var starttime = rowstarttime[0];
+  // console.log(starttime);
+
+    // 清除container2裡面之資料
+  $('.appendRow').remove();
+
+  $.ajax({
+    type:'GET',
+    url:`https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/OD/${startstation}/to/${endstation}/${newdate}?$select=DailyTrainInfo%20%2COriginStopTime%20%2CDestinationStopTime%20&$format=JSON`,
+    success:function(data){
+
+
+      // console.log(data);
+
+      // 塞選選定時間後資料
+      var resultdata =  data.filter(function(newdata){
+
+        var departuretime = newdata.OriginStopTime.DepartureTime.valueOf();
+        return departuretime > starttime.valueOf();
+
+      });
+
+      // 按照出發時間排序
+      var resultdata = resultdata.sort(function (a, b) {
+      return a.OriginStopTime.DepartureTime > b.OriginStopTime.DepartureTime ? 1:-1 ;
+      });
+        // console.log(resultdata);
+
+
+
+
+        // 渲染車次資料進網頁
+        for (var i = 0; i < resultdata.length; i++)
+        {
+            var trainNumber = resultdata[i].DailyTrainInfo.TrainNo;
+            var gotime = resultdata[i].OriginStopTime.DepartureTime;
+            var arrivetime = resultdata[i].DestinationStopTime.ArrivalTime;
+
+            // 乘車時間計算
+            var arrive = arrivetime.split(':');
+            var go = gotime.split(':');
+            // console.log(arrive,go);
+            var duringtime1 = 60*(arrive[0]-go[0])+(arrive[1]-go[1]);
+            var duringtime = Math.floor(duringtime1/60) + "時" + (duringtime1 - 60*(Math.floor(duringtime1/60))) + "分" ;
+
+
+
+
+          $('.container2').append(
+            `<div class="row appendRow">
+
+              <div class="col-3">
+                <div class="contents3">
+
+                    <h4 style="font-weight:bold;">${trainNumber}</h4>
+                </div>
+              </div>
+
+              <div class="col-3">
+                <div class="contents3">
+
+                    <h4 style="font-weight:bold;">${gotime}</h4>
+                </div>
+              </div>
+
+              <div class="col-3">
+                <div class="contents3">
+
+                    <h4 style="font-weight:bold;">${arrivetime}</h4>
+                </div>
+              </div>
+
+              <div class="col-3">
+                <div class="contents3">
+
+                    <h4 style="font-weight:bold;">${duringtime}</h4>
+                </div>
+              </div>
+
+            </div>`
+
+          // append之括號
+          );
+
+        // for循環括號
+        }
+
+// success function data 之括號
+    }
+
+    // AJAX之括號
+  });
+
+// click 之括號
+});
+
+
+// document ready 之括號
+});
+
+
+  </script>
+
+</body>
+</html>
+
+<style>
+
+*{
+
+  font-family: 微軟正黑體;
+}
+
+body{
+  position: relative;
+  background-color: #011627;
+}
+
+input{
+  width: 50%;
+  text-align: center;
+  border-radius:5%;
+  /* background-color: #A8DADC; */
+}
+
+select{
+  border-radius:10%;
+  /* background-color: #A8DADC; */
+}
+
+
+.container1{
+  height: 250px;
+  padding: 0px;
+  background-color: #1D3557;
+  overflow: hidden;
+
+
+  /* 調整timepicker顯示 */
+  z-index: auto;
+}
+
+.container2{
+  height:calc(100vh - 250px);
+  padding: 0px;
+  background-color: #8D99AE;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+
+}
+
+
+
+.contents0{
+  font-weight: bolder;
+  color: #FFE066;
+  text-align: center;
+  position: relative;
+  left:50%;
+  transform: translateX(-50%) ;
+}
+
+.contents1{
+  display: inline-block;
+  font-weight: bolder;
+  color: #FFE066;
+  padding-right: 30px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%) ;
+}
+
+
+.firstrow{
+  padding-top: 20px;
+}
+
+.secondrow{
+  padding: 30px 20px 0 0px;
+}
+
+
+#switch{
+  font-size: 30px;
+  margin-bottom: 50px;
+}
+
+#switch:hover{
+  cursor: pointer;
+  color: orange;
+}
+
+.contents2{
+  width: 100%;
+  color: white;
+  text-align: center;
+  position: relative;
+  top:50%;
+  left:50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+
+.contents3{
+  width: 100%;
+  color: black;
+  text-align: center;
+  position: relative;
+  top:50%;
+  left:50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.appendRow{
+  padding: 20px 0px;
+  border-bottom: 1px solid white;
+}
+
+.appendDiv{
+  padding: 0;
+border: 1px solid #EDF2F4;
+border-radius: 10px;
+}
+
+.searchbutton{
+  /* outline: none; */
+  position: relative;
+  top:50%;
+  transform: translateY(-50%);
+}
+
+
+#searchbutton{
+  outline: none;
+  width: 100px;
+  height: 100px;
+  font-weight: bolder;
+  font-size: 20px;
+  border-radius: 100%;
+  background-color: #247BA0;
+  color: #FFE066;
+  position: relative;
+  left: 50%;
+  transform: translateX(-70%);
+}
+
+#searchbutton:hover{
+  background-color: #05668D;
+}
+
+/* 調整timepicker顯示 */
+.ui-timepicker-container{
+position: fixed;
+}
+
+
+@media (max-width: 768px) {
+
+  input{
+    width: 80%;
+  }
+
+.contents1{
+  padding-right: 10px;
+
+}
+
+}
+
+
+</style>
