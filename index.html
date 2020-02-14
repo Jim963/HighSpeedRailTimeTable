@@ -33,12 +33,12 @@
       <div class="col-4 col-sm-4 col-md-4 col-lg-5">
 
         <div class="contents0">
-        <h4>出發日期</h4>
+        <p class="contents0word">出發日期</p>
         <input type="text" id="datepicker" placeholder="請選擇日期" >
         </div>
 
         <div class="contents0" style="margin-top:10px;">
-        <h4>出發時間</h4>
+        <p class="contents0word">出發時間</p>
         <input type="text" id="timepicker" placeholder="請選擇時間" >
         </div>
 
@@ -48,9 +48,10 @@
 
       <div class="col-5 col-sm-5 col-md-5 col-lg-4 startstation">
 
+
         <div class="contents1">
 
-        <h3>起站</h3>
+        <p class="contents1word">起站</p>
         <select id="selector1" class="selctor">
           <option value="0990">南港</option>
           <option value="1000">臺北</option>
@@ -76,7 +77,7 @@
 
         <div class="contents1">
 
-        <h3>迄站</h3>
+        <p class="contents1word">迄站</p>
         <select id="selector2" class="selctor">
           <option value="0990">南港</option>
           <option value="1000">臺北</option>
@@ -96,6 +97,7 @@
 
       </div>
 
+
       <div class="col-3 col-sm-3 col-md-3 col-lg-3">
         <div class="searchbutton">
         <button id="searchbutton" type="button" name="button">立即查詢</button>
@@ -109,25 +111,25 @@
     <div class="row secondrow">
       <div class="col-3">
         <div class="contents2">
-            <h4 style="font-weight:bold;">車次</h4>
+            <p class="contents2word" style="font-weight:bold;">車次</p>
         </div>
       </div>
 
       <div class="col-3">
         <div class="contents2">
-            <h4  style="font-weight:bold;">出發時間</h4>
+            <p class="contents2word" style="font-weight:bold;">出發時間</p>
         </div>
       </div>
 
       <div class="col-3">
         <div class="contents2">
-            <h4  style="font-weight:bold;">到達時間</h4>
+            <p class="contents2word" style="font-weight:bold;">到達時間</p>
         </div>
       </div>
 
       <div class="col-3">
         <div class="contents2">
-            <h4 style="font-weight:bold;">乘車時間</h4>
+            <p class="contents2word" style="font-weight:bold;">乘車時間</p>
         </div>
       </div>
     </div>
@@ -142,25 +144,25 @@
 
       <div class="col-3">
         <div class="contents3">
-            <!-- <h4 style="font-weight:bold;">車次</h4> -->
+            <p class="contents3word" style="font-weight:bold;">車次</p>
         </div>
       </div>
 
       <div class="col-3">
         <div class="contents3">
-            <!-- <h4  style="font-weight:bold;">出發時間</h4> -->
+            <p class="contents3word" style="font-weight:bold;">出發時間</p>
         </div>
       </div>
 
       <div class="col-3">
         <div class="contents3">
-            <!-- <h4  style="font-weight:bold;">到達時間</h4> -->
+            <p class="contents3word" style="font-weight:bold;">到達時間</p>
         </div>
       </div>
 
       <div class="col-3">
         <div class="contents3">
-            <!-- <h4 style="font-weight:bold;">乘車時間</h4> -->
+            <p class="contents3word" style="font-weight:bold;">乘車時間</p>
         </div>
       </div>
 
@@ -283,28 +285,28 @@ $("#searchbutton").click(function(){
               <div class="col-3">
                 <div class="contents3">
 
-                    <h4 style="font-weight:bold;">${trainNumber}</h4>
+                    <p class="contents3word" style="font-weight:bold;">${trainNumber}</p>
                 </div>
               </div>
 
               <div class="col-3">
                 <div class="contents3">
 
-                    <h4 style="font-weight:bold;">${gotime}</h4>
+                    <p class="contents3word" style="font-weight:bold;">${gotime}</p>
                 </div>
               </div>
 
               <div class="col-3">
                 <div class="contents3">
 
-                    <h4 style="font-weight:bold;">${arrivetime}</h4>
+                    <p class="contents3word" style="font-weight:bold;">${arrivetime}</p>
                 </div>
               </div>
 
               <div class="col-3">
                 <div class="contents3">
 
-                    <h4 style="font-weight:bold;">${duringtime}</h4>
+                    <p class="contents3word" style="font-weight:bold;">${duringtime}</p>
                 </div>
               </div>
 
@@ -382,7 +384,6 @@ select{
 }
 
 
-
 .contents0{
   font-weight: bolder;
   color: #FFE066;
@@ -390,6 +391,11 @@ select{
   position: relative;
   left:50%;
   transform: translateX(-50%) ;
+}
+
+.contents0word{
+  font-size: 25px;
+  margin: 0;
 }
 
 .contents1{
@@ -400,6 +406,11 @@ select{
   position: relative;
   top: 50%;
   transform: translateY(-50%) ;
+}
+
+.contents1word{
+  font-size: 25px;
+  margin: 0;
 }
 
 
@@ -432,6 +443,11 @@ select{
   transform: translateX(-50%) translateY(-50%);
 }
 
+.contents2word{
+  font-size: 25px;
+  margin: 0;
+}
+
 
 .contents3{
   width: 100%;
@@ -441,6 +457,11 @@ select{
   top:50%;
   left:50%;
   transform: translateX(-50%) translateY(-50%);
+}
+
+.contents3word{
+  font-size: 25px;
+  margin: 0;
 }
 
 .appendRow{
@@ -489,7 +510,7 @@ position: fixed;
 @media (max-width: 768px) {
 
   input{
-    width: 80%;
+    width: 70%;
   }
 
 .contents1{
@@ -497,7 +518,117 @@ position: fixed;
 
 }
 
+.contents1word{
+  font-size: 20px;
+padding-left: 5px;
 }
+
+.contents0word,.contents2word,.contents3word{
+  font-size: 20px;
+  margin: 0;
+}
+
+#switch{
+  font-size: 20px;
+}
+
+
+}
+
+
+
+
+@media (max-width: 480px) {
+
+.container1{
+  height: 200px;
+}
+.container2{
+  height: calc(100vh - 200px);
+}
+
+input{
+  width: 50%;
+  font-size: 13px;
+}
+
+.col-3,.col-4,.col-5{
+  padding: 0px;
+}
+
+
+
+#searchbutton{
+  width: 80px;
+  height: 80px;
+  font-size: 15px;
+}
+
+/* .contents0{
+  margin-left: 5px;
+} */
+
+.contents1{
+  padding-right: 0px;
+  padding-left: 10px;
+}
+
+.contents0word,.contents1word,.contents2word,.contents3word{
+  font-size: 15px;
+}
+
+
+#selector1,#selector2{
+font-size: 13px;
+width: 50px;
+}
+
+#switch{
+  font-size: 15px;
+
+}
+
+}
+
+
+@media (max-width: 400px){
+
+  input{
+    width: 50%;
+    font-size: 10px;
+  }
+
+  .container1{
+    height: 180px;
+  }
+  .container2{
+    height: calc(100vh - 180px);
+  }
+
+  #searchbutton{
+    width: 60px;
+    height: 60px;
+    font-size: 10px;
+  }
+
+
+  .contents0word,.contents1word,.contents2word,.contents3word{
+    font-size: 13px;
+    margin: 0;
+  }
+
+  #switch{
+    font-size: 13px;
+  }
+
+  #selector1,#selector2{
+  font-size: 11px;
+  width: 45px;
+  }
+
+}
+
+
 
 
 </style>
